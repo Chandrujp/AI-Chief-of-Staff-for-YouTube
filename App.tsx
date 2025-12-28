@@ -36,12 +36,13 @@ const App: React.FC = () => {
       setTimeout(() => setSyncStatus('Syncing historical retention data...'), 2000);
       setTimeout(() => setSyncStatus('Analyzing content ROI & effort metrics...'), 4500);
 
-    const result = await fetch('/api/analyze-youtube', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ channelHandle: idToSync }) }).then(r => r.json());      setAnalysis(result);
-      setChatHistory([{
-        role: 'assistant',
-        content: `Analysis for ${result.channelName} is complete. Channel insights ready.`,
-        timestamp: Date.now()
-      }]);
+    const result = await fetch('/api/analyze-youtube', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ channelHandle: idToSync }) }).then(r => r.json());
+     setAnalysis(result);
+     setChatHistory([{
+       role: 'assistant',
+       content: `Analysis for ${result.channelName} is complete. Channel insights ready.`,
+       timestamp: Date.now()
+     }])
     } catch (error) {
       console.error('Analysis failed', error);
       setChatHistory(prev => [...prev, {
