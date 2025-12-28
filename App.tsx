@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
 import { analyzeYouTubeChannel, chatWithChiefOfStaff } from './services/geminiService';
 import { MOCK_VIDEOS } from './constants';
@@ -101,14 +102,15 @@ const App: React.FC = () => {
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center glass border-b border-white/5">
-        <div className="flex items-center gap-2">
+<Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
           <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
             <div className="w-4 h-4 bg-black rounded-sm" />
           </div>
           <span className="font-bold text-lg tracking-tight">AI Chief of Staff</span>
         </div>
-        <div className="flex items-center gap-8">
-          {analysis && (
+
+                    </Link>
+      {analysis && (
             <div className="hidden md:flex items-center gap-3 px-4 py-1.5 glass-card rounded-full">
               <div className="w-2 h-2 rounded-full bg-green-500" />
               <span className="text-[11px] font-bold text-white/80 uppercase tracking-widest">{analysis.channelName}</span>
