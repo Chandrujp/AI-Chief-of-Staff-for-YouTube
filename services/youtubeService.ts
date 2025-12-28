@@ -20,7 +20,7 @@ export interface YouTubeVideo {
   duration: string;
 }
 
-const YOUTUBE_API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
+const YOUTUBE_API_KEY = import.meta.env.YouTube_API_Key;
 const YOUTUBE_API_BASE = 'https://www.googleapis.com/youtube/v3';
 
 export async function getChannelIdFromHandle(handle: string): Promise<string> {
