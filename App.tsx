@@ -39,8 +39,7 @@ const App: React.FC = () => {
     const result = await fetch('/api/analyze-youtube', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ channelHandle: idToSync }) }).then(r => r.json());
      const transformedResult = {
        ...result,
-       videos: result.videos.map((v: any) => ({
-         ...v,
+     videos: (result.videos || []).map((v: any) => ({         ...v,
          estimatedEffort: Math.ceil(v.duration ? parseInt(v.duration.slice(2, -1)) / 60 : 2),
          watchTime: Math.ceil(v.viewCount / 1000) || 0,
          subscribersGained: Math.ceil(v.likeCount / 100) || 0,
