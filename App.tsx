@@ -1,7 +1,7 @@
 // Fixed App.tsx - resolves JSX syntax errors
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
-import { analyzeYouTubeChannel, chatWithChiefOfStaff } from './services/geminiService';
+import { chatWithChiefOfStaff } from './services/geminiService';
 import { MOCK_VIDEOS } from './constants';
 import { VideoData, AnalysisResult, BurnoutLevel, ChatMessage } from './types';
 import BurnoutMeter from './components/BurnoutMeter';
@@ -36,8 +36,7 @@ const App: React.FC = () => {
       setTimeout(() => setSyncStatus('Syncing historical retention data...'), 2000);
       setTimeout(() => setSyncStatus('Analyzing content ROI & effort metrics...'), 4500);
 
-      const result = await analyzeYouTubeChannel(idToSync);
-      setAnalysis(result);
+    const result = await fetch('/api/analyze-youtube', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ channelHandle: idToSync }) }).then(r => r.json());      setAnalysis(result);
       setChatHistory([{
         role: 'assistant',
         content: `Analysis for ${result.channelName} is complete. Channel insights ready.`,
