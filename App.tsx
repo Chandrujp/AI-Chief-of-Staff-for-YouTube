@@ -37,8 +37,17 @@ const App: React.FC = () => {
       setTimeout(() => setSyncStatus('Analyzing content ROI & effort metrics...'), 4500);
 
     const result = await fetch('/api/analyze-youtube', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ channelHandle: idToSync }) }).then(r => r.json());
-     setAnalysis(result);
-     setChatHistory([{
+     const transformedResult = {
+       ...result,
+       videos: result.videos.map((v: any) => ({
+         ...v,
+         estimatedEffort: Math.ceil(v.duration ? parseInt(v.duration.slice(2, -1)) / 60 : 2),
+         watchTime: Math.ceil(v.viewCount / 1000) || 0,
+         subscribersGained: Math.ceil(v.likeCount / 100) || 0,
+         format: v.viewCount > 100000 ? 'Deep Dive' : v.likeCount > 1000 ? 'Cinematic' : 'Shorts'
+       }))
+     };
+     setAnalysis(transformedResult)     setChatHistory([{
        role: 'assistant',
        content: `Analysis for ${result.channelName} is complete. Channel insights ready.`,
        timestamp: Date.now()
