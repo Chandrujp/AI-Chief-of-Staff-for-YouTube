@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
         
         <div className="border-t border-white/10 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-[10px] text-white font-medium uppercase tracking-widest opacity-50">
-            © 2024 AI CHIEF OF STAFF. ALL RIGHTS RESERVED.
+            © 2025 AI CHIEF OF STAFF FOR YOUTUBE ALL RIGHTS RESERVED.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-xs text-white/50 hover:text-white transition-colors">Twitter</a>
