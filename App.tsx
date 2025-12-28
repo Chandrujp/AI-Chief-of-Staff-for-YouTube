@@ -324,7 +324,7 @@ const App: React.FC = () => {
             <span className="text-[10px] font-bold text-white uppercase tracking-[0.3em]">Data-Driven Strategy</span>
             <span className="text-[10px] font-bold text-white uppercase tracking-[0.3em]">Sustainable Growth</span>
           </div>
-          <p className="text-[10px] text-white font-medium uppercase tracking-widest opacity-50">© 2024 EXECUTIVE AI LABS. ALL RIGHTS RESERVED.</p>
+          <p className="text-[10px] text-white font-medium uppercase tracking-widest opacity-50">© 2025 AI CHIEF OF STAFF FOR YOUTUBE ALL RIGHTS RESERVED.</p>
         </div>
       </footer>
     </div>
