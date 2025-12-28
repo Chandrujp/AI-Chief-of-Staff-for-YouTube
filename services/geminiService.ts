@@ -5,8 +5,8 @@ import { AnalysisResult } from "../types";
 
 // Note: Using Gemini 3 Pro for Search Grounding capabilities
 export const analyzeYouTubeChannel = async (channelId: string): Promise<AnalysisResult & { channelName: string }> => {
-  // Use import.meta.env.VITE_GEMINI_API_KEY directly as per guidelines
-const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });  
+  // Use import.meta.env.AI_Chief_of_Staff_YouTube directly as per guidelines
+const ai = new GoogleGenAI({ apiKey: import.meta.env.AI_Chief_of_Staff_YouTube });  
   const prompt = `
     Find and analyze the YouTube channel with handle or ID: ${channelId}.
     1. Use Google Search to find their most recent 5-7 videos (titles, views, estimated duration).
@@ -57,8 +57,8 @@ const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 };
 
 export const chatWithChiefOfStaff = async (history: any[], userPrompt: string, currentData: any): Promise<string> => {
-  // Use import.meta.env.VITE_GEMINI_API_KEY directly as per guidelines
-  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
+  // Use import.meta.env.AI_Chief_of_Staff_YouTube directly as per guidelines
+  const ai = new GoogleGenAI({ apiKey: import.meta.env.AI_Chief_of_Staff_YouTube });
   const chat = ai.chats.create({
     model: 'gemini-3-pro-preview',
     config: {
