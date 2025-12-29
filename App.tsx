@@ -46,8 +46,8 @@ const App: React.FC = () => {
          format: v.viewCount > 100000 ? 'Deep Dive' : v.likeCount > 1000 ? 'Cinematic' : 'Shorts'
        }))
      };
-     setAnalysis(transformedResult)     setChatHistory([{
-       role: 'assistant',
+ setAnalysis(transformedResult);
+ setChatHistory([{       role: 'assistant',
        content: `Analysis for ${result.channelName} is complete. Channel insights ready.`,
        timestamp: Date.now()
      }])
